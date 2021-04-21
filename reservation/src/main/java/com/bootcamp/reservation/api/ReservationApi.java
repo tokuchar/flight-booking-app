@@ -9,9 +9,11 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 @RequestMapping(path = "/reservation")
 public class ReservationApi {
+    //TODO: wstrzyknąć sobie jakoś Repository
 
     @GetMapping
     public String helloWorld(){
         return "hello";
     }
+    //TODO: metody http GET po UUID, GET dla wszystkich, POST
 }

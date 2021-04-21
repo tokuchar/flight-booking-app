@@ -9,7 +9,8 @@ import java.util.Optional;
 import java.util.UUID;
 
 @AllArgsConstructor
-public class FakeReservationRepository implements ReservationRepository{
+public class FakeReservationRepository implements ReservationRepository {
+    //TODO: zaimplementować metody :)
     private Map<UUID, Reservation> reservations;
 
     @Override
