@@ -33,4 +33,5 @@ public class FakeReservationRepository implements ReservationRepository {
     public List<Reservation> findAllReservations() {
         return reservations.values().stream().collect(Collectors.toUnmodifiableList());
     }
+
 }

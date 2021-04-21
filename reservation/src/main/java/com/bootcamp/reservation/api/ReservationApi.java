@@ -3,12 +3,11 @@ package com.bootcamp.reservation.api;
 import com.bootcamp.reservation.model.Reservation;
 import com.bootcamp.reservation.repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+import javax.xml.ws.Response;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -24,12 +23,13 @@ public class ReservationApi {
     }
     //TODO: wstrzyknąć sobie jakoś Repository
 
-    @GetMapping
-    public String helloWorld(){
-        return "hello";
-    }
-    @GetMapping
-    public Optional<Reservation> findReservationById(UUID uuid){
+//    @GetMapping
+//    public String helloWorld(){
+//        return "hello";
+//    }
+
+    @GetMapping(value = "/{uuid}")
+    public Optional<Reservation> findReservationById(@PathVariable UUID uuid){
         return reservationRepository.findReservation(uuid);
     }
 
@@ -39,7 +39,7 @@ public class ReservationApi {
     }
 
     @PostMapping
-    public UUID createReservation(Reservation reservation){
+    public UUID createReservation(@RequestBody Reservation reservation){
         return reservationRepository.createReservation(reservation);
     }
     //TODO: metody http GET po UUID, GET dla wszystkich, POST
