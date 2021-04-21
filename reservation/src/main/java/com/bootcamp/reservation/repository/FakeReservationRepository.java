@@ -8,30 +8,30 @@ import java.util.stream.Collectors;
 
 @Repository
 public class FakeReservationRepository implements ReservationRepository {
-    //TODO: zaimplementować metody :)
     private static Map<UUID, Reservation> reservations;
 
     public FakeReservationRepository() {
-        reservations= new HashMap<>();
+        reservations = new HashMap<>();
     }
 
     @Override
     public UUID createReservation(Reservation reservation) {
-        reservations.put(reservation.getUuid(), reservation);
-
-        return reservation.getUuid();
+        while(true) {
+            UUID uuid = UUID.randomUUID();
+            if (!reservations.containsKey(uuid)) {
+                reservations.put(uuid, reservation);
+                return uuid;
+            }
+        }
     }
 
     @Override
     public Optional<Reservation> findReservation(UUID uuid) {
-       Reservation tmp = reservations.get(uuid);
-       return Optional.ofNullable(tmp);
-
+        return Optional.ofNullable(reservations.get(uuid));
     }
 
     @Override
     public List<Reservation> findAllReservations() {
         return reservations.values().stream().collect(Collectors.toUnmodifiableList());
     }
-
 }

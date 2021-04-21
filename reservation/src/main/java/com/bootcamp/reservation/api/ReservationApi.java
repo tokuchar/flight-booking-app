@@ -18,29 +18,22 @@ import java.util.UUID;
 public class ReservationApi {
     private ReservationRepository reservationRepository;
 
-    public ReservationApi(ReservationRepository reservationRepository){
+    public ReservationApi(ReservationRepository reservationRepository) {
         this.reservationRepository = reservationRepository;
     }
-    //TODO: wstrzyknąć sobie jakoś Repository
-
-//    @GetMapping
-//    public String helloWorld(){
-//        return "hello";
-//    }
 
     @GetMapping(value = "/{uuid}")
-    public Optional<Reservation> findReservationById(@PathVariable UUID uuid){
+    public Optional<Reservation> findReservationById(@PathVariable UUID uuid) {
         return reservationRepository.findReservation(uuid);
     }
 
     @GetMapping
-    public List<Reservation> findAll(){
+    public List<Reservation> findAll() {
         return reservationRepository.findAllReservations();
     }
 
     @PostMapping
-    public UUID createReservation(@RequestBody Reservation reservation){
+    public UUID createReservation(@RequestBody Reservation reservation) {
         return reservationRepository.createReservation(reservation);
     }
-    //TODO: metody http GET po UUID, GET dla wszystkich, POST
 }
