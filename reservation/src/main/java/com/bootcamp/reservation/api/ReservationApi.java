@@ -10,13 +10,14 @@ import org.springframework.web.bind.annotation.RestController;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import javax.websocket.server.PathParam;
+import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @RestController
 @EnableSwagger2
 @RequestMapping(path = "/reservation")
-public class
-ReservationApi {
+public class ReservationApi {
 
     private final ReservationRepository reservationRepository;
 
@@ -24,20 +25,18 @@ ReservationApi {
         this.reservationRepository = reservationRepository;
     }
 
-    @PostMapping("/create")
+    @PostMapping
     public void saveReservation(Reservation reservation) {
         reservationRepository.createReservation(reservation);
     }
 
     @GetMapping("/{id}")
-    public String getReservation(@PathParam("id") UUID id) {
-        reservationRepository.findReservation(id);
-        return "index";
+    public Optional<Reservation> getReservation(@PathParam("id") UUID id) {
+        return reservationRepository.findReservation(id);
     }
 
-    @GetMapping("/all")
-    public String getAllReservations(){
-        reservationRepository.findAllReservations();
-        return "index";
+    @GetMapping
+    public List<Reservation> getAllReservations(){
+        return reservationRepository.findAllReservations();
     }
 }

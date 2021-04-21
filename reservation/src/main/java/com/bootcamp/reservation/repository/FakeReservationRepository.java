@@ -10,6 +10,10 @@ import java.util.*;
 public class FakeReservationRepository implements ReservationRepository{
     private static Map<UUID, Reservation> reservations;
 
+    public FakeReservationRepository() {
+
+    }
+
     @Override
     public UUID createReservation(Reservation reservation) {
         UUID id = UUID.randomUUID();
