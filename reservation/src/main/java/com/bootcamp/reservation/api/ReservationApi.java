@@ -1,7 +1,6 @@
 package com.bootcamp.reservation.api;
 
 import com.bootcamp.reservation.model.Reservation;
-import com.bootcamp.reservation.repository.FakeReservationRepository;
 import com.bootcamp.reservation.repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,25 +14,25 @@ import java.util.UUID;
 @RequestMapping(path = "/reservation")
 public class ReservationApi {
 
-    private ReservationRepository fakeReservationRepository;
+    private ReservationRepository reservationRepository;
     @Autowired
-    public ReservationApi(ReservationRepository fakeReservationRepository) {
-        this.fakeReservationRepository = fakeReservationRepository;
+    public ReservationApi(ReservationRepository reservationRepository) {
+        this.reservationRepository = reservationRepository;
     }
 
     @GetMapping("/{reservationId}")
     public Reservation getReservationById(@PathVariable UUID reservationId){
-        return fakeReservationRepository.findReservation(reservationId)
+        return reservationRepository.findReservation(reservationId)
                 .orElseThrow();
     }
 
     @GetMapping
     public List<Reservation> getAllReservations(){
-        return fakeReservationRepository.findAllReservations();
+        return reservationRepository.findAllReservations();
     }
 
     @PostMapping
     public void addReservation(Reservation reservation) {
-        fakeReservationRepository.createReservation(reservation);
+        reservationRepository.createReservation(reservation);
     }
 }
