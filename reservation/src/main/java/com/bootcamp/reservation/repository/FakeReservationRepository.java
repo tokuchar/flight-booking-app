@@ -1,30 +1,36 @@
 package com.bootcamp.reservation.repository;
 
 import com.bootcamp.reservation.model.Reservation;
-import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
+import java.util.stream.Collectors;
 
-@AllArgsConstructor
+@Repository
 public class FakeReservationRepository implements ReservationRepository {
     //TODO: zaimplementować metody :)
-    private Map<UUID, Reservation> reservations;
+    private static Map<UUID, Reservation> reservations;
+
+    public FakeReservationRepository() {
+        reservations= new HashMap<>();
+    }
 
     @Override
     public UUID createReservation(Reservation reservation) {
-        return null;
+        reservations.put(reservation.getUuid(), reservation);
+
+        return reservation.getUuid();
     }
 
     @Override
     public Optional<Reservation> findReservation(UUID uuid) {
-        return Optional.empty();
+       Reservation tmp = reservations.get(uuid);
+       return Optional.ofNullable(tmp);
+
     }
 
     @Override
     public List<Reservation> findAllReservations() {
-        return null;
+        return reservations.values().stream().collect(Collectors.toUnmodifiableList());
     }
 }
