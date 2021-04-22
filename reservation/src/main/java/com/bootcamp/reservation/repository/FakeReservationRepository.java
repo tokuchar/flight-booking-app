@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import java.util.*;
 
 @AllArgsConstructor
-public class FakeReservationRepository{
+public class FakeReservationRepository implements ReservationRepository{
     private static Map<UUID, Reservation> reservations = new HashMap<>();
 
     public UUID createReservation(Reservation reservation) {
