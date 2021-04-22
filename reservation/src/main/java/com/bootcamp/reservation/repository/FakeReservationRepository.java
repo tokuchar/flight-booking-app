@@ -3,28 +3,27 @@ package com.bootcamp.reservation.repository;
 import com.bootcamp.reservation.model.Reservation;
 import lombok.AllArgsConstructor;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 @AllArgsConstructor
-public class FakeReservationRepository implements ReservationRepository {
-    //TODO: zaimplementować metody :)
-    private Map<UUID, Reservation> reservations;
+public class FakeReservationRepository implements ReservationRepository{
+    private static Map<UUID, Reservation> reservations = new HashMap<>();
 
     @Override
     public UUID createReservation(Reservation reservation) {
-        return null;
+        UUID id = UUID.randomUUID();
+        reservation.setUuid(id);
+        reservations.put(id, reservation);
+        return id;
     }
 
     @Override
     public Optional<Reservation> findReservation(UUID uuid) {
-        return Optional.empty();
+        return Optional.ofNullable(reservations.get(uuid));
     }
 
     @Override
     public List<Reservation> findAllReservations() {
-        return null;
+        return new ArrayList(reservations.values());
     }
 }
