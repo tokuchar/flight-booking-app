@@ -1,9 +1,9 @@
 package com.bootcamp.reservation.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Value;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -14,10 +14,10 @@ import java.util.UUID;
 @NoArgsConstructor
 public class Reservation {
     UUID uuid;
-    UUID flightId;
+    Flight flight;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     LocalDateTime reservationDateTime;
     TicketClass ticketClass;
     BigDecimal price;
     Passenger passenger;
-
 }
