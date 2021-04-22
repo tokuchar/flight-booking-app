@@ -1,7 +1,7 @@
 package com.bootcamp.reservation.api;
 
 import com.bootcamp.reservation.model.Reservation;
-import com.bootcamp.reservation.repository.ReservationRepository;
+import com.bootcamp.reservation.repository.ReservationRepositoryImpl;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
@@ -14,24 +14,24 @@ import java.util.UUID;
 @RequestMapping(path = "/reservation")
 public class ReservationApi {
 
-    private final ReservationRepository reservationRepository;
+    private final ReservationRepositoryImpl reservationRepositoryImpl;
 
-    public ReservationApi(ReservationRepository reservationRepository) {
-        this.reservationRepository = reservationRepository;
+    public ReservationApi(ReservationRepositoryImpl reservationRepositoryImpl) {
+        this.reservationRepositoryImpl = reservationRepositoryImpl;
     }
 
     @PostMapping
     public void saveReservation(@RequestBody Reservation reservation) {
-        reservationRepository.createReservation(reservation);
+        reservationRepositoryImpl.createReservation(reservation);
     }
 
     @GetMapping("/{id}")
     public Optional<Reservation> getReservation(@PathVariable("id") UUID id) {
-        return reservationRepository.findReservation(id);
+        return reservationRepositoryImpl.findReservation(id);
     }
 
     @GetMapping
     public List<Reservation> getAllReservations(){
-        return reservationRepository.findAllReservations();
+        return reservationRepositoryImpl.findAllReservations();
     }
 }
