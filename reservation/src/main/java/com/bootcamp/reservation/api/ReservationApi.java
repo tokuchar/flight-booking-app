@@ -16,7 +16,7 @@ import java.util.UUID;
 @EnableSwagger2
 @RequestMapping(path = "/reservation")
 public class ReservationApi {
-    private ReservationRepository reservationRepository;
+    private final ReservationRepository reservationRepository;
 
     public ReservationApi(ReservationRepository reservationRepository) {
         this.reservationRepository = reservationRepository;
