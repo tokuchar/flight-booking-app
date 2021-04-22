@@ -34,7 +34,7 @@ public class PassengerEntity {
 	@Column(nullable = false)
 	String surname;
 
-	public PassengerEntity build(Passenger passenger) {
+	public static PassengerEntity map(Passenger passenger) {
 		return PassengerEntity.builder()
 				.id(passenger.getUuid())
 				.name(passenger.getName())

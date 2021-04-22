@@ -7,11 +7,12 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+@Transactional
 @Repository
 @Qualifier("ReservationRepositoryImpl")
 public class ReservationRepositoryImpl implements ReservationRepository {
@@ -21,16 +22,9 @@ public class ReservationRepositoryImpl implements ReservationRepository {
 
 	@Override
 	public UUID createReservation(Reservation reservation) {
-		UUID id = UUID.randomUUID();
-		entityManager.createNativeQuery("INSERT INTO reservation_entity (id, flightId, reservationDateTime, ticketClass, price, passenger) VALUES (?, ?, ?, ?, ?, ?)")
-				.setParameter(1, id)
-				.setParameter(2, reservation.getFlightId())
-				.setParameter(3, reservation.getReservationDateTime())
-				.setParameter(4, reservation.getTicketClass())
-				.setParameter(5, reservation.getPrice())
-				.setParameter(6, reservation.getPassenger())
-				.executeUpdate();
-		return id;
+		ReservationEntity reservationEntity = ReservationEntity.map(reservation);
+		entityManager.persist(reservationEntity);
+		return reservationEntity.getId();
 	}
 
 	@Override

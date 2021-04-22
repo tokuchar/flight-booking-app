@@ -37,14 +37,14 @@ public class ReservationEntity {
 	@ManyToOne
 	private PassengerEntity passenger;
 
-	public ReservationEntity build(Reservation reservation) {
+	public static ReservationEntity map(Reservation reservation) {
 		return ReservationEntity.builder()
 				.id(reservation.getUuid())
 				.flightId(reservation.getFlightId())
 				.reservationDateTime(reservation.getReservationDateTime())
 				.ticketClass(reservation.getTicketClass())
 				.price(reservation.getPrice())
-				.passenger(passenger.build(reservation.getPassenger()))
+				.passenger(PassengerEntity.map(reservation.getPassenger()))
 				.build();
 	}
 }
