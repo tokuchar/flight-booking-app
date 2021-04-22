@@ -9,14 +9,22 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Reservation {
-    private UUID uuid;
-    private UUID flightId;
-    private LocalDateTime reservationDateTime;
-    private TicketClass ticketClass;
-    private BigDecimal price;
-    private Passenger passenger;
+public class ReservationEntity {
+    @Id
+    UUID uuid;
+    @Transient
+    UUID flightId;
+    @Column
+    LocalDateTime reservationDateTime;
+    @Enumerated(EnumType.STRING)
+    TicketClass ticketClass;
+    @Column
+    BigDecimal price;
+    @ManyToOne
+    Passenger passenger;
+
 }
