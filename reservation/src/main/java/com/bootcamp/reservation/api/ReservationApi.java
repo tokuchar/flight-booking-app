@@ -13,6 +13,7 @@ import java.util.UUID;
 @EnableSwagger2
 @RequestMapping(path = "/reservation")
 public class ReservationApi {
+    //TODO: wstrzyknąć sobie jakoś Repository
 
     private final ReservationRepository reservationRepository;
 
@@ -34,4 +35,5 @@ public class ReservationApi {
     public List<Reservation> getAllReservations(){
         return reservationRepository.findAllReservations();
     }
+    //TODO: metody http GET po UUID, GET dla wszystkich, POST
 }
