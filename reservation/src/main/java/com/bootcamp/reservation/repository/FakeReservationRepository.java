@@ -8,11 +8,7 @@ import java.util.*;
 
 @AllArgsConstructor
 public class FakeReservationRepository implements ReservationRepository{
-    private static Map<UUID, Reservation> reservations;
-
-    public FakeReservationRepository() {
-
-    }
+    private static Map<UUID, Reservation> reservations = new HashMap<>();
 
     @Override
     public UUID createReservation(Reservation reservation) {
