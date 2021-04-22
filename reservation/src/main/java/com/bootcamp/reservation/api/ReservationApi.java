@@ -3,10 +3,13 @@ package com.bootcamp.reservation.api;
 import com.bootcamp.reservation.model.Reservation;
 import com.bootcamp.reservation.repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @RestController
@@ -21,9 +24,11 @@ public class ReservationApi {
     }
 
     @GetMapping("/{reservationId}")
-    public Reservation getReservationById(@PathVariable UUID reservationId){
-        return reservationRepository.findReservation(reservationId)
-                .orElseThrow();
+    public ResponseEntity<Reservation> getReservationById(@PathVariable UUID reservationId){
+       Optional<Reservation> optionalReservation = reservationRepository.findReservation(reservationId);
+
+        return optionalReservation.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+
     }
 
     @GetMapping

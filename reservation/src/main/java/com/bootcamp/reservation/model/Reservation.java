@@ -10,15 +10,10 @@ import java.util.UUID;
 @Data
 public class Reservation {
     @Setter (AccessLevel.PROTECTED)
-    private UUID uuid;
-    @Setter (AccessLevel.PROTECTED)
-    private UUID flightId;
-    @Setter (AccessLevel.PROTECTED)
-    private LocalDateTime reservationDateTime;
-    @Setter (AccessLevel.PROTECTED)
-    private TicketClass ticketClass;
-    @Setter (AccessLevel.PROTECTED)
-    private BigDecimal price;
-    @Setter (AccessLevel.PROTECTED)
-    private Passenger passenger;
+    UUID uuid;
+    UUID flightId;
+    LocalDateTime reservationDateTime;
+    TicketClass ticketClass;
+    BigDecimal price;
+    Passenger passenger;
 }
