@@ -1,15 +1,13 @@
 package com.bootcamp.reservation.repository;
 
-import com.bootcamp.reservation.model.Reservation;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Repository;
+import com.bootcamp.reservation.model.ReservationEntity;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
 public interface ReservationRepository {
-    UUID createReservation(Reservation reservation);
-    Optional<Reservation> findReservation(UUID uuid);
-    List<Reservation> findAllReservations();
+    UUID createReservation(ReservationEntity reservation);
+    Optional<ReservationEntity> findReservation(UUID uuid);
+    List<ReservationEntity> findAllReservations();
 }
