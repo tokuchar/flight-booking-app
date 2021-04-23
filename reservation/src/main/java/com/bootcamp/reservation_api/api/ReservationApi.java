@@ -1,7 +1,7 @@
-package com.bootcamp.reservation.api;
+package com.bootcamp.reservation_api.api;
 
-import com.bootcamp.reservation.model.Reservation;
-import com.bootcamp.reservation.repository.ReservationRepository;
+import com.bootcamp.reservation_api.model.Reservation;
+import com.bootcamp.reservation_api.repository.ReservationRepository;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 

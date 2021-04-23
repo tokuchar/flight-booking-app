@@ -1,9 +1,8 @@
-package com.bootcamp.reservation.config;
+package com.bootcamp.reservation_boot.config;
 
-import com.bootcamp.reservation.repository.FakeReservationRepository;
-import com.bootcamp.reservation.repository.ReservationRepository;
+import com.bootcamp.reservation_api.repository.FakeReservationRepository;
+import com.bootcamp.reservation_api.repository.ReservationRepository;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration

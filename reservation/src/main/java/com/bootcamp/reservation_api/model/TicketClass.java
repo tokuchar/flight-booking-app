@@ -1,4 +1,4 @@
-package com.bootcamp.reservation.model;
+package com.bootcamp.reservation_api.model;
 
 public enum TicketClass {
     BUSINESS,

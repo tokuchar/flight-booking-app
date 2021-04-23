@@ -1,8 +1,6 @@
-package com.bootcamp.reservation.repository;
+package com.bootcamp.reservation_api.repository;
 
-import com.bootcamp.reservation.model.Reservation;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Repository;
+import com.bootcamp.reservation_api.model.Reservation;
 
 import java.util.List;
 import java.util.Optional;
