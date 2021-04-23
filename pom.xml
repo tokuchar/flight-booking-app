@@ -21,7 +21,7 @@
     </properties>
 
     <modules>
-        <module>reservation</module>
+        <module>reservation_api</module>
         <module>reservation_boot</module>
     </modules>
 

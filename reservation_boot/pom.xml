@@ -8,12 +8,23 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
+    <groupId>com.bootcamp</groupId>
     <artifactId>reservation_boot</artifactId>
+    <version>${project.version}</version>
+    <name>reservation_boot</name>
+    <packaging>jar</packaging>
+
 
     <properties>
-        <maven.compiler.source>16</maven.compiler.source>
-        <maven.compiler.target>16</maven.compiler.target>
+        <java.version>11</java.version>
+        <project.version>0.0.1-SNAPSHOT</project.version>
     </properties>
+    <dependencies>
+        <dependency>
+            <groupId>com.bootcamp</groupId>
+            <artifactId>reservation_api</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 </project>
