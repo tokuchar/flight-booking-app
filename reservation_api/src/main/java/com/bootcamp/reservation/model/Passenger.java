@@ -1,7 +1,6 @@
 package com.bootcamp.reservation.model;
 
 import lombok.Value;
-import org.springframework.stereotype.Repository;
 
 import java.util.UUID;
 
