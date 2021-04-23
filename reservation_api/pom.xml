@@ -9,9 +9,9 @@
     </parent>
 
     <groupId>com.bootcamp</groupId>
-    <artifactId>reservation_api</artifactId>
-    <version>${project.version}</version>
-    <name>reservation_api</name>
+    <artifactId>reservation</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>reservation</name>
     <packaging>jar</packaging>
 
     <description>reservations module</description>
