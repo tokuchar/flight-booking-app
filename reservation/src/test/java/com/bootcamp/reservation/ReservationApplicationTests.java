@@ -1,4 +1,4 @@
-package com.bootcamp.reservation_api;
+package com.bootcamp.reservation;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,6 +1,6 @@
-package com.bootcamp.reservation_api.repository;
+package com.bootcamp.reservation.repository;
 
-import com.bootcamp.reservation_api.model.Reservation;
+import com.bootcamp.reservation.model.Reservation;
 import lombok.AllArgsConstructor;
 
 import java.util.*;

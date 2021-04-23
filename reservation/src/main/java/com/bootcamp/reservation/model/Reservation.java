@@ -1,4 +1,4 @@
-package com.bootcamp.reservation_api.model;
+package com.bootcamp.reservation.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
