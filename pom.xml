@@ -17,13 +17,14 @@
     <packaging>pom</packaging>
 
     <properties>
-        <java.version>8</java.version>
+        <java.version>11</java.version>
     </properties>
 
     <modules>
         <module>reservation_api</module>
         <module>reservation_boot</module>
-    </modules>
+		<module>reservation_server</module>
+	</modules>
 
     <dependencies>
 <!--        <dependency>-->
