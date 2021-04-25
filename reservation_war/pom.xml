@@ -10,9 +10,10 @@
         <version>2.4.5</version>
         <relativePath/>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
 
+    <modelVersion>4.0.0</modelVersion>
     <artifactId>reservation_war</artifactId>
+    <packaging>war</packaging>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -50,7 +51,7 @@
             </exclusions>
         </dependency>
     </dependencies>
-    <packaging>war</packaging>
+
 
     <build>
         <plugins>
