@@ -23,6 +23,7 @@
     <modules>
         <module>reservation_api</module>
         <module>reservation_boot</module>
+        <module>reservation_war</module>
     </modules>
 
     <dependencies>
