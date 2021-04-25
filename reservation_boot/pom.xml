@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.bootcamp</groupId>
     <artifactId>reservation_boot</artifactId>
-    <version>${project.version}</version>
+    <version>0.0.1-SNAPSHOT</version>
     <name>reservation_boot</name>
     <packaging>jar</packaging>
 
