@@ -11,7 +11,7 @@ public class FakeReservationRepository implements ReservationRepository{
 
     @Override
     public UUID createReservation(Reservation reservation) {
-        UUID id = UUID.randomUUID();
+        var id = UUID.randomUUID();
         reservation.setUuid(id);
         reservations.put(id, reservation);
         return id;
@@ -24,6 +24,6 @@ public class FakeReservationRepository implements ReservationRepository{
 
     @Override
     public List<Reservation> findAllReservations() {
-        return new ArrayList(reservations.values());
+        return new ArrayList<>(reservations.values());
     }
 }
