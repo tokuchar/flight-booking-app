@@ -23,6 +23,7 @@
     <modules>
         <module>reservation_api</module>
         <module>reservation_boot</module>
+        <module>client-validator</module>
     </modules>
 
     <dependencies>
