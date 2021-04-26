@@ -23,6 +23,8 @@
     <modules>
         <module>reservation_api</module>
         <module>reservation_boot</module>
+        <module>reservation_wildfly</module>
+        <module>client-validator</module>
     </modules>
 
     <dependencies>
@@ -30,10 +32,6 @@
 <!--            <groupId>org.springframework.boot</groupId>-->
 <!--            <artifactId>spring-boot-starter-hateoas</artifactId>-->
 <!--        </dependency>-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web-services</artifactId>
